@@ -31,4 +31,142 @@
 <!-- ===================================== START FOOTER ===================================== -->
 </div><!-- END GRID-->
 
+<h1>Equitrac 4.0</h1>
+
+<hr />
+
+<h2><strong>Billing Codes</strong></h2>
+
+<ul>
+<li>In order to add to "alotted" funny money you need to do a transaction</li>
+<li>Can also add money with the Cashier (typically involves using real funds)</li>
+<li>You can also automate the adding of funds</li>
+<li>You can also add or deduct funds with a Scheduled Task </li>
+<li>It is better to prompt for billing code at release time rather than at submission time because you don't have to use workstation client (which is costly)  </li>
+</ul>
+
+<p><em>test question</em> - <strong>What are the 6 types of scheduled task?</strong> </p>
+
+<ol>
+<li>Report</li>
+<li>Billing code synch</li>
+<li>Arbitrary command</li>
+<li>Set color quotas</li>
+<li>Set account balances</li>
+<li>Purge transactions</li>
+</ol>
+
+<hr />
+
+<ul>
+<li><p>Departments are your least important bucket, it's typically used to organize billing codes</p></li>
+<li><p>Less likely to be used for funding of PSC activity, very similar to a Windows Group</p></li>
+<li>Jobs are <strong>TRACKED</strong> based on user, HOWEVER money is charged/pulled through the billing code workflow (insert image)</li>
+<li>Tracking of <em>prints</em> is done by the <strong>USER</strong> billing or charge(back) is handled by the billing code workflow</li>
+</ul>
+
+<hr />
+
+<ul>
+<li>It is possible to have all 3 user authentication checkboxes enabled it <strong>IS</strong> possible for an AD user who has a bad password to still be able to authenticate and reset his PIN2 from the user dashboard</li>
+<li>Chapter 5 on HID configuration in the Admin guide has a 10-12 page section on HID encoding                                                                    </li>
+<li>31, 46, 5 will work 9x out of 10 with HID cards (ID Code section)                                                                     <em>see also pg 145 in Admin guide</em></li>
+</ul>
+
+<hr />
+
+<h2><strong>Session Flow</strong></h2>
+
+<ul>
+<li>Turn off Required Field so its optional and if necessary they can charge to dept or user</li>
+<li>This is the 2nd most important option in configuration, it determines how billing codes are handled/shown in Workstation Client</li>
+</ul>
+
+<h2><strong>Active Directory Synchronization</strong></h2>
+
+<p><em>test question</em> AD synch interval can only go as low as 15 mins
+* if user on AD gets deleted it will LOCK the EQ user but not delete
+* <strong>read "Update sequence # in Book 2 of documentation"</strong>
+* <em>test question</em> the following tasks can be scheduled...
+    1. Run Reports -y
+    2. Import Users 
+    3. Purge transactions -y
+    4. Adjust balances (users only) -y
+    5. Run an arbitrary command -y
+    6. Create EQ printers </p>
+
+<p><em>test question</em> When using AD sync and there's no dept entered what value shows in EQ? answer: NULL</p>
+
+<hr />
+
+<h2><strong>Account Creation</strong></h2>
+
+<p><strong>none of these settings apply for eqcmd imported or manually created users</strong></p>
+
+<hr />
+
+<h2><strong>Automating creation of Billing Codes</strong></h2>
+
+<ul>
+<li>use eqcmd</li>
+<li>
+<ul>*</ul></li>
+<li>-----------</li>
+</ul>
+
+<p>Rules and Routing</p>
+
+<p><em>test question</em> which of these R&amp;R actions are valid?</p>
+
+<p>Deny, Hold, Allow, Reprice, Redirect 
+ans: all but Reprice</p>
+
+<p><a href="http://daringfireball.net/projects/markdown/">Markdown site</a>:</p>
+
+<blockquote>
+  <p>The overriding design goal for Markdown's
+  formatting syntax is to make it as readable 
+  as possible. The idea is that a
+  Markdown-formatted document should be
+  publishable as-is, as plain text, without
+  looking like it's been marked up with tags
+  or formatting instructions.</p>
+</blockquote>
+
+<p>This text your see here is <em>actually</em> written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.  </p>
+
+<h2>Version</h2>
+
+<p>2.0</p>
+
+<h2>Tech</h2>
+
+<p>Dillinger uses a number of open source projects to work properly:</p>
+
+<ul>
+<li><a href="http://ace.ajax.org">Ace Editor</a> - awesome web-based text editor</li>
+<li><a href="https://github.com/coreyti/showdown">Showdown</a> - a port of Markdown to JavaScript</li>
+<li><a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> - great UI boilerplate for modern web apps</li>
+<li><a href="http://nodejs.org">node.js</a> - evented I/O for the backend</li>
+<li><a href="http://expressjs.com">Express</a> - fast node.js network app framework <a href="http://twitter.com/tjholowaychuk">@tjholowaychuk</a></li>
+<li><a href="https://github.com/madrobby/keymaster">keymaster.js</a> - awesome keyboard handler lib by <a href="http://twitter.com/thomasfuchs">@thomasfuchs</a></li>
+<li><a href="http://jquery.com">jQuery</a> - duh </li>
+</ul>
+
+<h2>Installation</h2>
+
+<p><code>sh
+git clone [git-repo-url] dillinger
+cd dillinger
+npm i -d
+mkdir -p public/files/{md,html}
+node app
+</code></p>
+
+<h2>License</h2>
+
+<p>MIT</p>
+
+<p><em>Free Software, Fuck Yeah!</em></p>
+
 </body></html>
